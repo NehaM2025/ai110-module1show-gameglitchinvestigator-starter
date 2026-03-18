@@ -25,14 +25,17 @@ It wrote the code, ran away, and now the game is unplayable.
 
 ## 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+**Game Purpose:** Glitchy Guesser" is the classic number-guessing game. A user tries to find the secret number within a limited number of guesses, based on the difficulty level they choose.
+
+- **Bugs & Fixes:**
+1. New Game Logic: While the "New Game" button resets the secret number and guess attempts, it does not clear the player's history or status, and thus the new game crashes/ends immediately. I made sure that when "New Game" is pressed, all relevant session state variables are reset so that the new game does not crash.
+
+2. Hint Flip: The logic for the check_guess function was reversed. It tells the player to guess higher when their guess is actually too high and lower when it is too low. Basically, it deceives the user. I swapped this logic to ensure the hints actually help the user make progress towards guessing the right number.
+
+3. Range Boundary Check: The parse_guess function only checks if the input is a valid number. It allows users to submit numbers outside the valid guess range [1,100]. I added an input check that will notify the user that their guess is outside the specified range.
 
 ## 📸 Demo
-
-- [ ] [Insert a screenshot of your fixed, winning game here]
+![Winning Screenshot](image.png)
 
 ## 🚀 Stretch Features
-
 - [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
